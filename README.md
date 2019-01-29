@@ -2,7 +2,7 @@
 
 This is a sample project using React for learning purposes.
 
-# Getting started
+## Getting started
 You will need to have Node.js installed beforehand.
 
 First, clone the repo and checkout the sample branch:
@@ -23,53 +23,50 @@ Now you run the app in development mode:
 npm start
 ```
 
-Open http://localhost:3000 to view it in the browser.
-The page will reload if you make edits.
+Open http://localhost:3000 to view it in the browser.  
+The page will reload if you make edits.  
 You will also see any lint errors in the console.
 
-## Other Scripts
-### `npm test`
+## Git Branching
+I would recommend having your shell show the current git branch. I recommend [fish](https://fishshell.com/), but if you use bash, you can just put the following code in your `.bashrc` as well.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<details>
+<summary>Click to show code</summary>
+<p>
+```bash
+# Courtesy of https://stackoverflow.com/a/6086978
+function color_prompt {
+    local __user_and_host="\[\033[01;32m\]\u@\h"
+    local __cur_location="\[\033[01;34m\]\w"
+    local __git_branch_color="\[\033[31m\]"
+    #local __git_branch="\`ruby -e \"print (%x{git branch 2> /dev/null}.grep(/^\*/).first || '').gsub(/^\* (.+)$/, '(\1) ')\"\`"
+    local __git_branch='`git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)\ /`'
+    local __prompt_tail="\[\033[35m\]$"
+    local __last_color="\[\033[00m\]"
+    export PS1="$__user_and_host $__cur_location $__git_branch_color$__git_branch\n$__prompt_tail$__last_color "
+}
+color_prompt
+```
+</p>
+</details>
 
-### `npm run build`
+### Show branches
+```
+git branch # show local branches
+git branch -r # show remote branches
+```
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Switching branches
+```
+git checkout branch_name
+```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
--->
+### Creating a new local branch
+From the branch you want to branch from, run:
+```
+git checkout -b new_branch_name
+```
+### Pushing a new local branch to origin
+```
+git push -u origin new_branch_name
+```
