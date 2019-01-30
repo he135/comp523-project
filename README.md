@@ -32,7 +32,7 @@ I would recommend having your shell show the current git branch. I recommend [fi
 
 <details>
 <summary>Click to show code</summary>
-<p>
+
 ```bash
 # Courtesy of https://stackoverflow.com/a/6086978
 function color_prompt {
@@ -47,7 +47,6 @@ function color_prompt {
 }
 color_prompt
 ```
-</p>
 </details>
 
 ### Show branches
